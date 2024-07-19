@@ -13,8 +13,8 @@ public class D13LocateByXPath_Relative {
 		
 		driver.get("https://practicetestautomation.com/practice-test-login/");
 		
-		driver.findElement(By.xpath("//div[@id=\"form\"]/div[1]/input[1]")).sendKeys("pratik");
-		driver.findElement(By.xpath("//input[@type=\"password\"]")).sendKeys("pratik123");
+		driver.findElement(By.xpath("//div[@id=\"form\"]/div[1]/input[1]")).sendKeys("student");
+		driver.findElement(By.xpath("//input[@type=\"password\"]")).sendKeys("Password123");
 		driver.findElement(By.xpath("//button[@id=\"submit\"]")).click();
 		
 		//WebElement errMsg = driver.findElement(By.xpath("//*[@id=\"error\"]"));
@@ -22,7 +22,16 @@ public class D13LocateByXPath_Relative {
 		
 		//System.out.println(msg);
 		
-		System.out.println("Error Message: " + driver.findElement(By.xpath("//*[@id=\"error\"]")).getText());
+		//System.out.println("Error Message: " + driver.findElement(By.xpath("//*[@id=\"error\"]")).getText());
+		
+		String url = driver.getCurrentUrl();
+		
+		driver.findElement(By.partialLinkText("Log")).click();
+		
+		if(url.contains("/logged-in-successfully"))
+			System.out.println("Login Succesful\nTest case PASS");
+		else
+			System.out.println("Login Failed\nTest case Fail");
 		
 		driver.close();
 	}
