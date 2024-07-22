@@ -8,14 +8,13 @@
 	b. Select the checkbox which are not selected
 	c. Display the status (Selected, Enabled, Visible)
 	https://echoecho.com/htmlforms09.htm
-7. on https://register.rediff.com/register/register.php?FormName=user_details select and display your birthdate like 
- My Birth Date: 19-JUL-2024
-8. Open https://www.redbus.in/
-	a. In From Enter first 4 characters of your city (Kolhapur -> Kolh)
-	b. Select 1st Option from the list displayed
-	c. In To Enter first 4 characters of your city (Banglore -> Ban)
-	d. Select 1st Option from the list displayed
-	e. Click on Calender icon
-	f. Click on Date 30
-	g. Click on Search Buses button
-	h. Display the name of 1st Bus from the list
+7. Open https://echoecho.com/htmlforms10.htm
+	a. Display the status of every radio button(Selected, Enabled, Visible)
+	b. Click on every radio button
+	c. Display the status of every radio button(Selected, Enabled, Visible)
+8. Open https://dash.bling-center.com/platform/signIn.html 
+	a. Click on forgot password
+	b. Enter email id
+	c. Click on Reset Password
+	d. Display the messages which in green color
+	

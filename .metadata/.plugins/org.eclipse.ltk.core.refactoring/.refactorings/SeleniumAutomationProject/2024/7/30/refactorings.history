@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.MyAssignments.D04RedbusAssignment&apos; to &apos;A04RedbusAssignment&apos;&#x0D;&#x0A;- Original project: &apos;SeleniumAutomationProject&apos;&#x0D;&#x0A;- Original element: &apos;com.MyAssignments.D04RedbusAssignment&apos;&#x0D;&#x0A;- Renamed element: &apos;com.MyAssignments.A04RedbusAssignment&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;D04RedbusAssignment&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.MyAssignments{D04RedbusAssignment.java[D04RedbusAssignment" matchStrategy="1" name="A04RedbusAssignment" qualified="false" references="true" similarDeclarations="false" stamp="1721660695913" textual="false" version="1.0"/>
+</session>
