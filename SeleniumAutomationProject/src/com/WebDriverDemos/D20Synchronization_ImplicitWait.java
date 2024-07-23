@@ -40,5 +40,4 @@ public class D20Synchronization_ImplicitWait {
 		
 		driver.close();
 	}
-
 }

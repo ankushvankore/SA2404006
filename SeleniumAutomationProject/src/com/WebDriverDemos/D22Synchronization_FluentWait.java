@@ -21,6 +21,7 @@ public class D22Synchronization_FluentWait {
 		driver.manage().window().maximize();
 		
 		driver.get("https://www.redbus.in/");
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		
 		FluentWait<WebDriver>wait = new FluentWait<WebDriver>(driver);
 		
