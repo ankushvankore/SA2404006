@@ -51,3 +51,10 @@
 	e. Display any row randomly
 	f. Display list of all the companies (Company name only)
 	g. Read all current price and display the highest price.
+
+12.  Open https://demoqa.com/webtables
+	a. Try to display all header columns
+	b. Click on Add button
+	c. Enter all the data
+	d. Search the name in First Name column
+	e. Click on delete button in the same row
