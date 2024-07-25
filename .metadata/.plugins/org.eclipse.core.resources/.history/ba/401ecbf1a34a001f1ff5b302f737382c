@@ -1,0 +1,19 @@
+package com.WebDriverDemos;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		List<String>students = new ArrayList<String>();
+		students.add("aaa");
+		students.add("bbb");
+		students.add("ccc");
+		students.add("ddd");
+		
+		System.out.println(students.get(0));
+		
+	}
+
+}

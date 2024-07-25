@@ -20,6 +20,8 @@ public class D25HandlingAlerts {
 		Alert alt;
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
+		js.executeScript("window.scrollBy(0, 250)", "");
+		
 		js.executeScript("arguments[0].click()", driver.findElement(By.id("alertButton")));
 		
 		//driver.findElement(By.id("alertButton")).click();
@@ -46,8 +48,7 @@ public class D25HandlingAlerts {
 		alt.accept();
 		System.out.println(driver.findElement(By.id("promptResult")).getText());
 		
-		
-		//driver.close();
+		driver.close();
 	}
 
 }
