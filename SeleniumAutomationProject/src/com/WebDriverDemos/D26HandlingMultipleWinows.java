@@ -27,7 +27,7 @@ public class D26HandlingMultipleWinows {
 		
 		Set<String>windows = driver.getWindowHandles();
 		//System.out.println(windows);
-		Iterator<String> itr = windows.iterator();
+		Iterator<String> itr = windows.iterator();		//Iterator is used to iterate over the Set
 		String win1 = itr.next();			//Will return 1st element
 		String win2 = itr.next();
 		

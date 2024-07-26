@@ -1,0 +1,26 @@
+package com.WebDriverDemos;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class D34Drag_Drop_2 {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		driver.get("https://jqueryui.com/");
+		
+		driver.findElement(By.linkText("Slider")).click();
+		
+		WebElement slider = driver.findElement(By.xpath("//*[@id=\"slider\"]/span"));
+		
+		
+	}
+
+}
