@@ -58,3 +58,29 @@
 	c. Enter all the data
 	d. Search the name in First Name column
 	e. Click on delete button in the same row
+
+13. Open https://www.firstcry.com/
+	
+Open FirstCry
+Print title
+
+Click on Boy Fashion
+Print title
+
+Open FirstCry
+Print title
+
+Click on Girl Fashion
+Print Title
+
+Open FirstCry
+Print title
+
+Click on Toys
+Print Title
+
+Open FirstCry
+Print title
+
+Click on Footwear
+Print Title
