@@ -1,9 +1,14 @@
 package com.TestNGDemos;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +17,7 @@ import org.testng.annotations.Test;
 
 public class D04Before_After_Method {
 	WebDriver driver;
+	int i = 1;
 	
 	@BeforeMethod
 	public void beforeMethod()
@@ -19,10 +25,14 @@ public class D04Before_After_Method {
 		System.out.println("\tBefore Method");
 	}
 	@AfterMethod
-	public void printTitle()
+	public void printTitle() throws IOException
 	{
 		System.out.println("\t\tTitle: " + driver.getTitle());
 		System.out.println("\tAfter Method");
+		
+		File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileHandler.copy(file, new File("ss"+i+".jpeg"));
+		i++;
 	}
 
 	@Test(priority = 2)
@@ -46,7 +56,7 @@ public class D04Before_After_Method {
 	}
 
 	@AfterTest
-	public void closeBrowser() {
+	public void closeBrowser() throws IOException {
 		driver.close();
 		System.out.println("After Test");
 	}

@@ -1,0 +1,15 @@
+package com.TestNGDemos;
+
+import org.testng.annotations.Test;
+
+public class D09Dependency {
+  @Test
+  public void test1() {
+	  System.out.println("This is login test");
+  }
+  @Test//(dependsOnMethods = "login")
+  public void secondTest() {
+	  System.out.println("This is logout test");
+  }
+  
+}

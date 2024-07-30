@@ -1,0 +1,15 @@
+package com.TestNGDemos;
+
+import org.testng.annotations.Test;
+
+public class D09Dependency {
+  @Test
+  public void test1() {
+	  System.out.println("This is 1st test");
+  }
+  @Test
+  public void secondTest() {
+	  System.out.println("This is 2nd test");
+  }
+  
+}
