@@ -1,0 +1,5 @@
+url = https://demoqa.com/automation-practice-form
+IDfirstName = firstName
+XPathLastName = //*[@id="lastName"]
+CssEmail = input[placeholder="name@example.com"]
+XPathGenderMale = //*[@id="gender-radio-1"]
