@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
 
@@ -21,13 +22,17 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
 
 public class D16LoginToOHRM_DDF {
-	String fPath = "D:\\StarAgile\\Demos\\SA2404006\\SeleniumAutomationProject\\LoginData.xlsx";
+	//String fPath = "D:\\StarAgile\\Demos\\SA2404006\\SeleniumAutomationProject\\LoginData.xlsx";
+	String fPath = System.getProperty("user.dir") + "\\LoginData.xlsx";
 	File file;
 	FileInputStream fis;
+	FileOutputStream fos;
 	XSSFWorkbook wb;
 	XSSFSheet sheet;
 	XSSFRow row;
 	XSSFCell cell;
+	
+	int index = 1;
 	
 	WebDriver driver;
 	
@@ -41,15 +46,22 @@ public class D16LoginToOHRM_DDF {
 	}
 	@AfterMethod
 	public void afterMethod() {
+		row = sheet.getRow(index);
+		cell = row.getCell(2);
 		if (driver.getCurrentUrl().contains("dashboard")) {
 			System.out.println("Login successful!!!");
 			driver.findElement(By.xpath("//i[@class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']")).click();
 			driver.findElement(By.partialLinkText("Log")).click();
+			
+			cell.setCellValue("Pass");
 		}
 		else
 		{
 			System.out.println(driver.findElement(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']")).getText());
+			cell.setCellValue("Fail");
 		}
+		
+		index++;
 	}
 
 
@@ -76,6 +88,9 @@ public class D16LoginToOHRM_DDF {
 		wb = new XSSFWorkbook(fis);
 		sheet = wb.getSheetAt(0);
 		
+		//Always configure FileOutputStream after configuring sheet
+		fos = new FileOutputStream(file);
+		
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -84,8 +99,10 @@ public class D16LoginToOHRM_DDF {
 
 	@AfterTest
 	public void afterTest() throws IOException {
+		wb.write(fos);
 		wb.close();
 		fis.close();
+		fos.close();
 		
 		driver.close();
 	}
