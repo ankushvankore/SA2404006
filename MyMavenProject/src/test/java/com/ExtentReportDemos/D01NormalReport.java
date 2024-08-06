@@ -49,6 +49,18 @@ public class D01NormalReport {
 		test1 = report.createTest("RPM Test");
 		test1.log(Status.PASS, MarkupHelper.createLabel("RPM Test: ", ExtentColor.GREEN));
 		
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		driver.get("https://www.google.com");
+		System.out.println("Title: " + driver.getTitle());
+		
+		driver.close();
+		
+		test1 = report.createTest("Google Test");
+		test1.log(Status.FAIL, MarkupHelper.createLabel("Google Test: ", ExtentColor.RED));
+		
 		report.flush();	
 		//GEnerates the report
 	}

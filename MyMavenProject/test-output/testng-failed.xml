@@ -3,13 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.MyTests.D05LoginToOHRM">
+      <class name="com.ExtentReportDemos.D02ForTestNG">
         <methods>
-          <include name="loginToOHRM"/>
-          <include name="beforeTest"/>
-          <include name="afterTest"/>
+          <include name="beforeMethod"/>
+          <include name="beforeClass"/>
+          <include name="openBing"/>
+          <include name="openYahoo"/>
+          <include name="afterMethod"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- com.MyTests.D05LoginToOHRM -->
+      </class> <!-- com.ExtentReportDemos.D02ForTestNG -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
