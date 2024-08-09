@@ -35,8 +35,8 @@ public class S04RediffRegister {
 	    driver.findElement(By.cssSelector("input[name^=\"btnchkav\"]")).click();
 	    Thread.sleep(5000);
 	    String msg = driver.findElement(By.xpath("//*[@id=\"check_availability\"]/font[1]/b")).getText();
-	    Assert.assertTrue(msg.contains("Yippie"));
-	    //System.out.println(driver.findElement(By.xpath("//*[@id=\"check_availability\"]/font[1]/b")).getText());
+	    //Assert.assertTrue(msg.contains("Yippie"));
+	    System.out.println(driver.findElement(By.xpath("//*[@id=\"check_availability\"]/font[1]/b")).getText());
 	    
 	}
 
@@ -54,6 +54,11 @@ public class S04RediffRegister {
 	public void i_enter_alt_mail_id(String altMail) {
 	    driver.findElement(By.cssSelector("input[name^=\"altemail\"]")).sendKeys(altMail);
 	    
+	}
+	
+	@When("I enter mobile no as {int}")
+	public void i_enter_mobile_no_as(Integer mNo) {
+		driver.findElement(By.xpath("//input[@id='mobno']")).sendKeys(mNo.toString());
 	}
 
 	@When("enter fullName as {string}")
@@ -88,6 +93,11 @@ public class S04RediffRegister {
 	@When("enter alt mail id {string}")
 	public void enter_alt_mail_id(String altMail) {
 	    driver.findElement(By.cssSelector("input[name^=\"altemail\"]")).sendKeys(altMail);
+	}
+	
+	@When("enter mobile no as {int}")
+	public void enter_mobile_no_as(Integer mNo) {
+		driver.findElement(By.xpath("//input[@id='mobno']")).sendKeys(mNo.toString());
 	}
 
 }

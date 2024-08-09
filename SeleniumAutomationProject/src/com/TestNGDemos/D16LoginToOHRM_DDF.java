@@ -8,7 +8,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
 
+import org.apache.poi.hssf.util.HSSFColor.HSSFColorPredefined;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -31,6 +36,8 @@ public class D16LoginToOHRM_DDF {
 	XSSFSheet sheet;
 	XSSFRow row;
 	XSSFCell cell;
+	XSSFCellStyle style;
+	XSSFFont font;
 	
 	int index = 1;
 	
@@ -38,8 +45,8 @@ public class D16LoginToOHRM_DDF {
 	
 	@Test(dataProvider = "getLoginData")
 	public void loinToOHRM(String un, String ps) {
-		driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys(un);
-		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys(ps);
+		driver.findElement(By.xpath("//input[@name='username']")).sendKeys(un);
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys(ps);
 		driver.findElement(By.xpath("//button[@type='submit']")).submit();
 		
 		Assert.assertTrue(driver.getCurrentUrl().contains("dash"));
@@ -48,16 +55,40 @@ public class D16LoginToOHRM_DDF {
 	public void afterMethod() {
 		row = sheet.getRow(index);
 		cell = row.getCell(2);
+		
+		style = wb.createCellStyle();
+		font = wb.createFont();
+		
 		if (driver.getCurrentUrl().contains("dashboard")) {
 			System.out.println("Login successful!!!");
 			driver.findElement(By.xpath("//i[@class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']")).click();
 			driver.findElement(By.partialLinkText("Log")).click();
+			
+			font.setBold(true);
+			font.setColor(HSSFColorPredefined.GREEN.getIndex());
+			
+			style.setFont(font);
+			style.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
+			style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+
+			cell.setCellStyle(style);
 			
 			cell.setCellValue("Pass");
 		}
 		else
 		{
 			System.out.println(driver.findElement(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']")).getText());
+			
+			font.setItalic(true);
+			font.setColor(HSSFColorPredefined.RED.getIndex());
+			
+			style.setFont(font);
+			
+			style.setFillForegroundColor(IndexedColors.LIGHT_BLUE.getIndex());
+			style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+			
+			cell.setCellStyle(style);
+			
 			cell.setCellValue("Fail");
 		}
 		
