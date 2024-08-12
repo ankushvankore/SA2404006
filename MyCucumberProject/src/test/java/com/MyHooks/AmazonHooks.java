@@ -10,7 +10,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
 public class AmazonHooks {
-	@Before
+	//@Before
 	public void start()
 	{
 		System.out.println("Before");
@@ -20,7 +20,7 @@ public class AmazonHooks {
 		
 		
 	}
-	@After
+	//@After
 	public void end()
 	{
 		System.out.println("After");
